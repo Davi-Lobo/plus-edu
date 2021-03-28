@@ -1,9 +1,13 @@
-import './App.css';
+import React from 'react';
+
+import Header from './components/Header';
+
+import './global.css'
 
 function App() {
     return (
         <div className="App">
-            <h1>+EDU!</h1>
+            <Header isLoggedIn={false}/>
         </div>
     );
 }
