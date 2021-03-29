@@ -15,5 +15,4 @@ export default function UserArea({isLoggedIn}) {
             <button className="register">Registrar</button>
         </div>
     );
-    
 }
