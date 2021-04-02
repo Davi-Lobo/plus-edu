@@ -2,8 +2,6 @@ import React from 'react';
 
 import Header from '../../components/Header';
 
-import './style.css';
-
 const TITLE = "+Edu - Página não encontrada";
 
 export default function NotFound() {

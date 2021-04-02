@@ -34,6 +34,15 @@ button:active {
     top: 1px;
 }
 
+h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
 .page-header {
     background-color: #38B6FF;
     margin-bottom: 60px;
@@ -73,7 +82,7 @@ button:active {
     align-items: center;
 }
 
-    .user-space > button {
+    .user-space > a {
         border: 2px solid #FFF;
         border-radius: 25px;
         color: #FFF;
@@ -82,9 +91,13 @@ button:active {
         height: 45px;
         width: 170px;
         background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
     }
 
-        .user-space > button:hover {
+        .user-space > a:hover {
             background-color: #FFF;
             color: #38B6FF;
         }
@@ -108,7 +121,6 @@ button:active {
 
         .recent-questions > .head > .title {
             font-weight: 700;
-            font-size: 32px;
         }
 
         .recent-questions > .head > .link {
@@ -178,7 +190,7 @@ button:active {
 
 
 .sidebar-main {
-    padding-top: 90px;
+    padding-top: 80px;
 }
 
     .sidebar-main > .content {

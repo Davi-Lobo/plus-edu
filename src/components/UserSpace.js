@@ -11,8 +11,8 @@ export default function UserSpace({isLoggedIn}) {
     
     return (
         <div className="user-space">
-            <button className="login">Entrar</button>
-            <button className="register">Registrar</button>
+            <a href="/login" className="login">Entrar</a>
+            <a href="/registro" className="register">Registrar</a>
         </div>
     );
 }

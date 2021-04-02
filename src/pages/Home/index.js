@@ -16,10 +16,14 @@ export default function Home() {
                 <title>{ TITLE }</title>
             </Helmet>
 
-            <Header isLoggedIn={false}/>
+            <Header isLoggedIn={false} isHome={true}/>
 
             <div className="page-wrapper">
                 <main id="main-content" className="page-main">
+                    <div className="page-title">
+                        <h1 className="title">Página Inicial</h1>
+                    </div>
+
                     <RecentQuestions/>
                 </main>
 
