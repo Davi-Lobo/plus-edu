@@ -7,43 +7,43 @@ export default function TopTags() {
 
             <ul className="list">
                 <li className="item">
-                    <span>Cálculo</span>
+                    <a href="">Cálculo</a>
                 </li>
                 <li className="item">
-                    <span>História</span>
+                    <a href="">História</a>
                 </li>
                 <li className="item">
-                    <span>PHP</span>
+                    <a href="">PHP</a>
                 </li>
                 <li className="item">
-                    <span>C++</span>
+                    <a href="">C++</a>
                 </li>
                 <li className="item">
-                    <span>Biologia</span>
+                    <a href="">Biologia</a>
                 </li>
                 <li className="item">
-                    <span>Português</span>
+                    <a href="">Português</a>
                 </li>
                 <li className="item">
-                    <span>Inglês</span>
+                    <a href="">Inglês</a>
                 </li>
                 <li className="item">
-                    <span>Filosofia</span>
+                    <a href="">Filosofia</a>
                 </li>
                 <li className="item">
-                    <span>Lógica de programação</span>
+                    <a href="">Lógica de programação</a>
                 </li>
                 <li className="item">
-                    <span>Espanhol</span>
+                    <a href="">Espanhol</a>
                 </li>
                 <li className="item">
-                    <span>Geografia</span>
+                    <a href="">Geografia</a>
                 </li>
                 <li className="item">
-                    <span>Interpretação Textual</span>
+                    <a href="">Interpretação Textual</a>
                 </li>
                 <li className="item">
-                    <span>Redação</span>
+                    <a href="">Redação</a>
                 </li>
             </ul>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function UserArea({isLoggedIn}) {
+export default function UserSpace({isLoggedIn}) {
     if(isLoggedIn) {
         return (
             <div className="user-space">
