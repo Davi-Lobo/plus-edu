@@ -17,6 +17,11 @@ body {
     background-color: #F3F3F3;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 input,
 button,
 textarea {
@@ -220,7 +225,7 @@ h2 {
 
 
 .sidebar-main {
-    padding-top: 80px;
+    padding-top: 90px;
 }
 
     .sidebar-main > .content {

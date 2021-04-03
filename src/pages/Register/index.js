@@ -12,11 +12,11 @@ export default function RegisterPage() {
         <div className="App">
             <Header/>
 
-            <div className="page-wrapper -column">
-                <div className="page-title">
-                    <h1 className="title">Crie sua conta!</h1>
-                </div>
+            <div className="page-title">
+                <h1 className="title">Crie sua conta!</h1>
+            </div>
 
+            <div className="page-wrapper -column">
                 <RegisterForm/>
             </div>
         </div>

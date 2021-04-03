@@ -14,6 +14,16 @@ export default function RegisterForm() {
             </div>
 
             <div className="field">
+                <label htmlFor="email" className="label -required">E-mail</label>
+                <input id="email" className="input" type="email" placeholder="Insira seu e-mail"/>
+            </div>
+
+            <div className="field">
+                <label htmlFor="password" className="label -required">Senha</label>
+                <input id="password" className="input" type="password" placeholder="Insira sua senha"/>
+            </div>
+
+            <div className="field">
                 <label htmlFor="occupation" className="label -required">Cargo/Curso</label>
                 <input id="occupation" className="input" type="text" placeholder="Insira seu cargo ou nível de educação..."/>
             </div>
