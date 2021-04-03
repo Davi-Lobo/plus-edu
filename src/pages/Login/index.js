@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Header from '../../components/Header';
 import LoginForm from '../../components/LoginForm';
@@ -10,6 +11,10 @@ const TITLE = "+Edu - Página de login";
 export default function LoginPage() {
     return (
         <div className="App">
+            <Helmet>
+                <title>{ TITLE }</title>
+            </Helmet>
+
             <Header/>
 
             <div className="page-wrapper -column">

@@ -6,7 +6,7 @@ export default function YourQuestions() {
             <div className="head">
                 <h2 className="title">Suas Perguntas</h2>
 
-                <a href="" className="link">Faça uma pergunta</a>
+                <a href="/pergunte" className="link">Faça uma pergunta</a>
             </div>
             
             <ul className="list">

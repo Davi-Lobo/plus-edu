@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function RegisterForm() {    
     return (
-        <form className="register-form">
+        <form className="form-container -register">
             <div className="field">
                 <label htmlFor="profilepic" className="label -required">Foto de perfil</label>
                 <input id="profilepic" type="file" accept="image/*"/>

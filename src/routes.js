@@ -7,6 +7,7 @@ import LoginPage from './pages/Login';
 import NotFound from './pages/404';
 import UserDashboard from './pages/UserDashboard';
 import ProfilePage from './pages/Profile';
+import AskPage from './pages/AskPage';
 
 export default function Routes() {
     return (
@@ -17,6 +18,7 @@ export default function Routes() {
                 <Route path="/registro" component={RegisterPage}/>
                 <Route path="/dashboard" component={UserDashboard}/>
                 <Route path="/profile" component={ProfilePage}/>
+                <Route path="/pergunte" component={AskPage}/>
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Header from '../../components/Header';
 import UserData from '../../components/UserData';
@@ -10,6 +11,10 @@ const TITLE = "+Edu - Seu Perfil";
 export default function ProfilePage() {
     return (
         <div className="App">
+            <Helmet>
+                <title>{ TITLE }</title>
+            </Helmet>
+
             <Header/>
 
             <div className="page-title">
