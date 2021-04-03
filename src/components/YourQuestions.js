@@ -1,60 +1,15 @@
 import React from 'react';
 
-export default function RecentQuestions() {    
+export default function YourQuestions() {    
     return (
-        <div className="questions-list -recent">
+        <div className="questions-list -yours">
             <div className="head">
-                <h2 className="title">Perguntas Recentes</h2>
+                <h2 className="title">Suas Perguntas</h2>
 
                 <a href="" className="link">Faça uma pergunta</a>
             </div>
             
             <ul className="list">
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
                 <li className="question-item">
                     <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
 

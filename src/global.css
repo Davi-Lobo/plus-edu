@@ -83,8 +83,14 @@ h2 {
     display: flex;
 }
 
-.page-wrapper.-column {
-    flex-direction: column;
+    .page-wrapper.-column {
+        flex-direction: column;
+    }
+
+.page-title {
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: 0 auto;
 }
 
 .page-main {
@@ -126,24 +132,28 @@ h2 {
         margin-right: 20px;
     }
 
-    .recent-questions > .list {
+.questions-list {
+    margin-bottom: 80px;
+}
+
+    .questions-list > .list {
         background-color: #FFF;
         border-radius: 15px;
         list-style: none;
     }
 
-    .recent-questions > .head {
+    .questions-list > .head {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 40px;
     }
 
-        .recent-questions > .head > .title {
+        .questions-list > .head > .title {
             font-weight: 700;
         }
 
-        .recent-questions > .head > .link {
+        .questions-list > .head > .link {
             align-items: center;
             background-color: #38B6FF;
             border-radius: 5px;
@@ -157,7 +167,7 @@ h2 {
             width: 230px;
         }
 
-            .recent-questions > .head > .link:hover {
+            .questions-list > .head > .link:hover {
                 filter: brightness(0.8);
             }
 

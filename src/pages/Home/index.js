@@ -26,7 +26,7 @@ export default function Home() {
 
                     <RecentQuestions/>
                 </main>
-
+                
                 <aside className="sidebar-main">
                     <div className="content">
                         <SearchQuestions/>
