@@ -8,6 +8,7 @@ import NotFound from './pages/404';
 import UserDashboard from './pages/UserDashboard';
 import ProfilePage from './pages/Profile';
 import AskPage from './pages/AskPage';
+import QuestionPage from './pages/Question';
 
 export default function Routes() {
     return (
@@ -19,6 +20,7 @@ export default function Routes() {
                 <Route path="/dashboard" component={UserDashboard}/>
                 <Route path="/profile" component={ProfilePage}/>
                 <Route path="/pergunte" component={AskPage}/>
+                <Route path="/pergunta" component={QuestionPage}/>
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>
