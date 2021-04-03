@@ -1,0 +1,43 @@
+.login-form {
+    background-color: #FFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 30px;
+}
+
+.login-form > .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.login-form > .field > .label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-form > .field > .label.-required::after {
+    color: #CA2828;
+    content: '*';
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.login-form > .actions > .button {
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 600;
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #38B6FF;
+    border: 0;
+    color: #FFF;
+}
+
+.login-form > .actions > .button:hover {
+    filter: brightness(0.85);
+}
