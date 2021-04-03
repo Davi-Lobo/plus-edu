@@ -17,12 +17,14 @@ export default function LoginPage() {
 
             <Header/>
 
-            <div className="page-wrapper -column">
-                <div className="page-title">
+            <div className="page-title">
                     <h1 className="title">Página de Login</h1>
                 </div>
 
-                <LoginForm/>
+            <div className="page-wrapper">
+                <main id="main-content" className="page-main">
+                    <LoginForm/>
+                </main>
             </div>
         </div>
     );

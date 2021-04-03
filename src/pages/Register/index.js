@@ -21,8 +21,10 @@ export default function RegisterPage() {
                 <h1 className="title">Crie sua conta!</h1>
             </div>
 
-            <div className="page-wrapper -column">
-                <RegisterForm/>
+            <div className="page-wrapper">
+                <main id="main-content" className="page-main">
+                    <RegisterForm/>
+                </main>
             </div>
         </div>
     );
