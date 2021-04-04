@@ -6,17 +6,12 @@ import api from '../services/api';
 export default function RecentQuestions() {
     const [ questions, setQuestions] = useState([]);
 
-    const userName = localStorage.getItem('username');
-
     useEffect(() => {
-        api.get('question', {
-            headers: {
-                author: userName,
-            }
-        }).then(response =>{
+        api.get('questions').then(response =>{
             setQuestions(response.data);
+            console.log(response.data)
         })
-    }, [userName]);
+    }, []);
 
     return (
         <div className="questions-list -recent">
@@ -39,7 +34,7 @@ export default function RecentQuestions() {
 
                         <div className="author">
                             <span>Feita por: </span>
-                            <span className="name">{question.author}</span>
+                            <span className="name">{`${question.users_permissions_user.firstName} ${question.users_permissions_user.lastName}`}</span>
                         </div>
                     </li>
                 ))}
