@@ -7,8 +7,10 @@ exports.up = function(knex) {
         table.string('category', 50).notNullable();
 
         table.string('user_id').notNullable();
+        table.string('author').notNullable();
 
         table.foreign('user_id').references('id').inTable('users');
+        table.foreign('author').references('name').inTable('users');
     });
 };
 
