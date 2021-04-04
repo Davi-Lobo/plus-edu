@@ -1,15 +1,12 @@
 const express = require("express");
 
+const connection = require('./database/connection');
+const UserController = require('./controllers/UserController');
+
 const routes = express.Router();
 
-routes.get('/', (request, response) => {
-    const body = request.body;
+routes.get('/users', UserController.index);
 
-    console.log(body);
-
-    return response.json({
-       Renan: 'PROGRAMAÇÃO POR AMOR' 
-    });
-});
+routes.post('/users', UserController.create);
 
 module.exports = routes;

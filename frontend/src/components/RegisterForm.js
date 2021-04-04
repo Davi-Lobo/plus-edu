@@ -9,8 +9,8 @@ export default function RegisterForm() {
             </div>
 
             <div className="field">
-                <label htmlFor="firstname" className="label -required">Nome</label>
-                <input id="firstname" className="input" type="text" placeholder="Insira seu nome e sobrenome"/>
+                <label htmlFor="name" className="label -required">Nome</label>
+                <input id="name" className="input" type="text" placeholder="Insira seu nome e sobrenome"/>
             </div>
 
             <div className="field">
