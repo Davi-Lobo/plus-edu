@@ -10,6 +10,7 @@ routes.get('/users', UserController.index);
 routes.post('/users', UserController.create);
 
 routes.get('/question', QuestionController.index);
+routes.get('/question/:id', QuestionController.getOne);
 routes.post('/question', QuestionController.create);
 
 module.exports = routes;

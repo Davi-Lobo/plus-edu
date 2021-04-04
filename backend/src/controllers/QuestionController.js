@@ -6,6 +6,19 @@ module.exports = {
         
         return response.json(questions);
     }, 
+
+    async getOne(request, response) {
+        const { id } = request.params;
+
+        const question = await connection('questions').where('id', id);
+
+        if(Object.keys(question).length == '0') {
+            return response.status(404).json({ error: 'A pergunta pesquisa não existe.' });
+        }
+        
+        return response.json(question);
+    }, 
+
     async create(request, response) {
         const { title, description, category } = request.body;
         const user_id = request.headers.Authorization;
