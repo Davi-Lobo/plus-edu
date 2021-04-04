@@ -1,6 +1,7 @@
 {
-  "name": "plus_edu",
-  "version": "0.1.0",
+  "name": "plus_edu_frontend",
+  "version": "1.0.0",
+  "author": "Davi Lobo",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
