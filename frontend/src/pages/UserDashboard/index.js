@@ -18,7 +18,7 @@ export default function UserDashboard() {
                 <title>{ TITLE }</title>
             </Helmet>
 
-            <Header isLoggedIn={true}/>
+            <Header isLogged={true}/>
 
             <div className="page-title">
                     <h1 className="title">Dashboard</h1>

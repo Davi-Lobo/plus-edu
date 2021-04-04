@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function UserSpace({isLoggedIn}) {
     if(isLoggedIn) {
@@ -11,8 +12,8 @@ export default function UserSpace({isLoggedIn}) {
     
     return (
         <div className="user-space">
-            <a href="/login" className="login">Entrar</a>
-            <a href="/registro" className="register">Registrar</a>
+            <Link to="/login" className="login">Entrar</Link>
+            <Link to="/registro" className="register">Registrar</Link>
         </div>
     );
 }

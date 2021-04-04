@@ -124,6 +124,12 @@ h2 {
     align-items: center;
 }
 
+.user-space > span {
+    font-weight: 700;
+    color: #FFF;
+    font-size: 22px;
+}
+
     .user-space > a {
         border: 2px solid #FFF;
         border-radius: 25px;
@@ -137,6 +143,35 @@ h2 {
         align-items: center;
         justify-content: center;
         text-decoration: none;
+    }
+
+    .user-space > span > a {
+        background: transparent;
+        box-shadow: none;
+        border: 0;
+        font-size: 22px;
+        font-weight: 700;
+        text-decoration: underline;
+        color: #FFF;
+        padding: 0 5px;
+    }
+
+    .user-space > span > a:hover {
+        filter: brightness(0.95);
+    }
+
+    .user-space > span > .logout {
+        background: transparent;
+        box-shadow: none;
+        border: 0;
+        font-size: 22px;
+        font-weight: 700;
+        text-decoration: underline;
+        color: #FFF;
+    }
+
+    .user-space > span > .logout:hover {
+        filter: brightness(0.95);
     }
 
         .user-space > a:hover {
@@ -201,6 +236,13 @@ h2 {
 
     .question-item > .title {
         margin-bottom: 10px;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .question-item > .title:hover {
+        text-decoration: underline;
+        cursor: pointer;
     }
 
     .question-item > .tags {

@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function RecentQuestions() {    
+import api from '../services/api';
+
+export default function RecentQuestions() {
+    const [ questions, setQuestions] = useState([]);
+
+    const userName = localStorage.getItem('username');
+
+    useEffect(() => {
+        api.get('question', {
+            headers: {
+                author: userName,
+            }
+        }).then(response =>{
+            setQuestions(response.data);
+            console.log(response.data);
+        })
+    }, [userName]);
+
     return (
         <div className="questions-list -recent">
             <div className="head">
@@ -10,95 +28,22 @@ export default function RecentQuestions() {
             </div>
             
             <ul className="list">
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
+                {questions.map(question => (
+                    <li key={question.id} className="question-item">
+                        <Link className="title" to={`/pergunta/${question.id}`}>
+                            <h3 className="title">{question.title}</h3>
+                        </Link>
 
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
+                        <div className="tags">
+                            <span className="tag">{question.category}</span>
+                        </div>
 
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
-
-                <li className="question-item">
-                    <h3 className="title">Dada a função f(x) = 2 (x - senx) / 5x³, o valor de lim x {'->'}10 f(x) é?</h3>
-
-                    <div className="tags">
-                        <span className="tag">Cálculo</span>
-                        <span className="tag">Limites</span>
-                        <span className="tag">Matemática</span>
-                    </div>
-
-                    <div className="author">
-                        <span>Feita por: </span>
-                        <a href="" className="name">Davi Lobo</a>
-                    </div>
-                </li>
+                        <div className="author">
+                            <span>Feita por: </span>
+                            <span className="name">{question.author}</span>
+                        </div>
+                    </li>
+                ))}
             </ul>
         </div>
     );

@@ -1,13 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import Header from '../../components/Header';
+import api from '../../services/api';
 
 import './style.css';
 
 const TITLE = "+Edu - Faça sua pergunta!";
 
 export default function AskPage() {
+    const [title, setTitle] = useState('');
+    const [category, setCategory] = useState('');
+    const [description, setDescription] = useState('');
+
+    const userName = localStorage.getItem('username');
+
+    const history = useHistory();
+
+    async function handleAsk(e) {
+        e.preventDefault();
+
+        const data = {
+            title,
+            description,
+            category
+        };
+
+        console.log(data)
+
+        try {
+           const response = await api.post('question', data, {
+               headers: {
+                   author: userName,
+                   Authorization: 2,
+                   name: userName
+               }
+           });
+
+           history.push('/dashboard');
+        } catch (err) {
+            alert('Erro ao perguntar, tente novamente')
+        }
+    }
+
     return (
         <div className="App">
             <Helmet>
@@ -23,26 +59,44 @@ export default function AskPage() {
 
             <div className="page-wrapper">
                 <main id="main-content" className="page-main">
-                    <form className="form-container -ask">
+                    <form onSubmit={handleAsk} className="form-container -ask">
                         <div className="field">
                             <label htmlFor="title" className="label -required">Título</label>
-                            <input id="title" type="text" placeholder="Insira o título da pergunta" name="title" maxLength="100"/>
+                            <input 
+                                id="title" 
+                                type="text" 
+                                name="title" 
+                                maxLength="100"
+                                placeholder="Insira o título da pergunta"
+                                onChange={e => setTitle(e.target.value)}
+                            />
                         </div>
 
                         <div className="field">
                             <label htmlFor="category" className="label -required">Categoria</label>
-                            <select name="category" id="category">
+                            <select 
+                                name="category" 
+                                id="category"
+                                onChange={e => setCategory(e.target.value)}
+                            >
                                 <option value="" selected>Escolha a categoria</option>
-                                <option value="matematica">Matemática</option>
-                                <option value="historia">História</option>
-                                <option value="biologia">Biologia</option>
-                                <option value="portugues">Português</option>
+                                <option value="Matemática">Matemática</option>
+                                <option value="História">História</option>
+                                <option value="Biologia">Biologia</option>
+                                <option value="Português">Português</option>
                             </select>
                         </div>
 
                         <div className="field">
-                            <label htmlFor="question" className="label -required">Pergunta</label>
-                            <textarea id="question" className="input" placeholder="Faça sua pergunta" name="question" maxLength="3000"/>
+                            <label htmlFor="description" className="label -required">Pergunta</label>
+                            <textarea 
+                                id="description" 
+                                className="input" 
+                                placeholder="Faça sua pergunta" 
+                                name="description" 
+                                maxLength="3000"
+                                onChange={e => setDescription(e.target.value)}
+                            />
                         </div>
 
                         <div className="actions">

@@ -15,7 +15,7 @@ export default function ProfilePage() {
                 <title>{ TITLE }</title>
             </Helmet>
 
-            <Header/>
+            <Header isLogged={true}/>
 
             <div className="page-title">
                 <h1 className="title">Seu Perfil</h1>
