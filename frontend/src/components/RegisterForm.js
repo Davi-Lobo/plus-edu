@@ -15,6 +15,8 @@ export default function RegisterForm() {
     async function handleRegister(e) {
         e.preventDefault();
 
+        setTeacher(parseInt(teacher));
+
         const data = {
             name,
             email,
@@ -25,8 +27,6 @@ export default function RegisterForm() {
 
         try {
             const response = await api.post('users', data);
-
-            alert(response.data);
 
             history.push('/login');
         } catch {
@@ -93,8 +93,8 @@ export default function RegisterForm() {
                     id="teacher"
                     onChange={e => setTeacher(e.target.value)} 
                 >
-                    <option value="false" selected>Não</option>
-                    <option value="true">Sim</option>
+                    <option value="0" selected>Não</option>
+                    <option value="1">Sim</option>
                 </select>
             </div>
 

@@ -3,10 +3,10 @@ const { index } = require('./UserController');
 
 module.exports = {
     async index(request, response) {
-        const user_id = request.headers.authorization;
+        const author = request.headers.author;
 
         const questions = await connection('questions')
-            .where('user_id', user_id)
+            .where('author', author)
             .select('*');
 
         return response.json(questions);

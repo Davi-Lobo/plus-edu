@@ -7,18 +7,18 @@ import api from '../services/api';
 export default function YourQuestions() {    
     const [ questions, setQuestions] = useState([]);
 
-    const user_id = localStorage.getItem('user_id');
+    const userName = localStorage.getItem('username');
 
     useEffect(() => {
         api.get('profile', {
             headers: {
-                authorization: user_id,
+                author: userName,
             }
         }).then(response =>{
             setQuestions(response.data);
             console.log(response.data);
         })
-    }, []);
+    }, [userName]);
 
     return (
         <div className="questions-list -yours">

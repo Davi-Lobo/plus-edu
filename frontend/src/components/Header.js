@@ -8,6 +8,7 @@ import UserSpace from './UserSpace';
 
 export default function Header({isHome, isLogged}) {    
     const userName = localStorage.getItem('username');
+    const user_id = localStorage.getItem('user_id');
 
     const history = useHistory();
 
@@ -42,7 +43,7 @@ export default function Header({isHome, isLogged}) {
                     <div className="user-space">
                         <span>Bem vindo de volta, {userName},
 
-                        <Link to="/profile" className="link"> Meu Perfil ,</Link> 
+                        <Link to={`/profile/${user_id}`} className="link"> Meu Perfil ,</Link> 
                         
                         <button className="logout" onClick={handleLogout}> Logout</button></span>
                     </div>

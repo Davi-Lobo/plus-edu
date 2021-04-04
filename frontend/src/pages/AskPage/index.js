@@ -51,7 +51,7 @@ export default function AskPage() {
             </Helmet>
 
 
-            <Header/>
+            <Header isLogged={true}/>
 
             <div className="page-title">
                 <h1 className="title">Faça sua pergunta</h1>

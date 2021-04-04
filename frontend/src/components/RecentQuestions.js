@@ -15,7 +15,6 @@ export default function RecentQuestions() {
             }
         }).then(response =>{
             setQuestions(response.data);
-            console.log(response.data);
         })
     }, [userName]);
 
@@ -24,7 +23,7 @@ export default function RecentQuestions() {
             <div className="head">
                 <h2 className="title">Perguntas Recentes</h2>
 
-                <a href="/pergunte" className="link">Faça uma pergunta</a>
+                {/* <a href="/pergunte" className="link">Faça uma pergunta</a> */}
             </div>
             
             <ul className="list">

@@ -21,9 +21,14 @@ export default function LoginForm() {
         try {
             const response = await api.post('session', data);
 
+            console.log(response.data[0].teacher)
+
             localStorage.setItem('username', response.data[0].name);
             localStorage.setItem('user_id', response.data[0].id);
 
+            if(response.data[0].teacher) {
+                localStorage.setItem('teacher', true);
+            }
 
             history.push('/dashboard');
         } catch {
