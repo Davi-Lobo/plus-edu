@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import api from '../services/api';
 
 export default function LoginForm() {    
-    const [email, setEmail] = useState('');
+    const [identifier, setIdentifier] = useState('');
     const [password, setPassword] = useState('');
 
     const history = useHistory();
@@ -14,22 +14,14 @@ export default function LoginForm() {
         e.preventDefault();
 
         const data = {
-            email,
+            identifier,
             password
         }
 
         try {
-            const response = await api.post('session', data);
+            const response = await api.post('auth/local', data);
 
-            console.log(response.data[0].teacher)
-
-            localStorage.setItem('username', response.data[0].name);
-            localStorage.setItem('user_id', response.data[0].id);
-
-            if(response.data[0].teacher) {
-                localStorage.setItem('teacher', true);
-            }
-
+            localStorage.setItem('token', data.jwt);
             history.push('/dashboard');
         } catch {
             alert('Falha no login, tente novamente');
@@ -41,10 +33,10 @@ export default function LoginForm() {
             <div className="field">
                 <label htmlFor="email" className="label -required">Email</label>
                 <input 
-                    id="email" 
+                    id="username" 
                     type="email" 
                     placeholder="Insira seu e-mail"
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={e => setIdentifier(e.target.value)}
                 />
             </div>
 
