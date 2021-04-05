@@ -1,28 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
 import Header from '../../components/Header';
-
+import api from '../../services/api';
 import './style.css';
 
 const TITLE = "+Edu - Faça sua pergunta!";
 
-export default function QuestionPage() {
+export default function QuestionPage(props) {
+    const [ answers, setAnswers] = useState([]);
+    const [question, setQuestion] = useState([])
+    const question_id = props.match.params.id
+    useEffect(() => {
+        api.get(`questions/${question_id}`)
+        .then(response =>{
+            setQuestion(response.data)
+            setAnswers(response.data.answers)
+            console.log(response.data.answers);
+        })
+    }, []);
+
+    useEffect(async () => {
+        setAnswers( await Promise.all(answers.map(async (answer) => {
+            const user =  await api.get('users/'+ answer.id)
+            answer.fullName = `${user.firstName} ${user.lastName}`
+            return answer
+        })))
+    }, []);
+
+
     return (
+        
         <div className="App">
             <Helmet>
                 <title>{ TITLE }</title>
             </Helmet>
 
             <Header/>
-
             <div className="page-title">
-                <h1 className="title">Pergunta BLASJOSAIFASEJSAIOE ASIOEJSAE!?SAEPJSOE ??</h1>
+                <h1 className="title">{question.title}</h1>
             </div>
 
             <div className="page-wrapper">
                 <main id="main-content" className="page-main">
-                    
+                <div className="questions-list -recent">
+            <div className="head">
+                <h2 className="title">Perguntas Recentes</h2>
+
+                {/* <a href="/pergunte" className="link">Faça uma pergunta</a> */}
+            </div>
+            
+            <ul className="list">
+            {answers.map(answer => (
+                    <li key = {answer.id} className="question-item">
+                        <div className="tags">
+                            <span>{answer.description}</span>
+                        </div>
+
+                        <div className="author">
+                            <span>Feita por: </span>
+                            <span className="name">{answer.fullName}</span>
+                        </div>
+                    </li>
+               ))}
+            </ul>
+        </div>
                 </main>
             </div>
         </div>
