@@ -16,11 +16,11 @@ export default function Routes() {
             <Switch>
                 <Route path="/" component={Home} exact/>
                 <Route path="/login" component={LoginPage}/>
-                <Route path="/registro" component={RegisterPage}/>
+                <Route path="/register" component={RegisterPage}/>
                 <Route path="/dashboard" component={UserDashboard}/>
                 <Route path="/profile" component={ProfilePage}/>
-                <Route path="/pergunte" component={AskPage}/>
-                <Route path="/pergunta" component={QuestionPage}/>
+                <Route path="/ask" component={AskPage}/>
+                <Route path="/question/:id" component={QuestionPage}/>
                 <Route component={NotFound}/>
             </Switch>
         </BrowserRouter>

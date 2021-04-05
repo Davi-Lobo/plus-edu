@@ -10,13 +10,13 @@ import './style.css';
 const TITLE = "+Edu - Faça sua pergunta!";
 
 export default function AskPage() {
+    const history = useHistory();
+
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
     const [description, setDescription] = useState('');
 
-    const userName = localStorage.getItem('username');
-
-    const history = useHistory();
+    const token = localStorage.getItem('token');
 
     async function handleAsk(e) {
         e.preventDefault();
@@ -27,14 +27,10 @@ export default function AskPage() {
             category
         };
 
-        console.log(data)
-
         try {
-           const response = await api.post('question', data, {
+           const response = await api.post('questions', data, {
                headers: {
-                   author: userName,
-                   Authorization: 2,
-                   name: userName
+                   Authorization: `Bearer ${token}`,
                }
            });
 
