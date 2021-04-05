@@ -75,7 +75,7 @@ export default function AskPage() {
                                 id="category"
                                 onChange={e => setCategory(e.target.value)}
                             >
-                                <option value="" selected>Escolha a categoria</option>
+                                <option value="" defaultValue>Escolha a categoria</option>
                                 <option value="Matemática">Matemática</option>
                                 <option value="História">História</option>
                                 <option value="Biologia">Biologia</option>

@@ -18,7 +18,7 @@ export default function Routes() {
                 <Route path="/login" component={LoginPage}/>
                 <Route path="/register" component={RegisterPage}/>
                 <Route path="/dashboard" component={UserDashboard}/>
-                <Route path="/profile" component={ProfilePage}/>
+                <Route path="/profile/:id" component={ProfilePage}/>
                 <Route path="/ask" component={AskPage}/>
                 <Route path="/question/:id" component={QuestionPage}/>
                 <Route component={NotFound}/>

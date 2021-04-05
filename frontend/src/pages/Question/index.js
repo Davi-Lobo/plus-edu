@@ -12,13 +12,15 @@ export default function QuestionPage(props) {
     const [question, setQuestion] = useState([]);
     const question_id = props.match.params.id;
 
+    const token = localStorage.getItem('token');
+
     useEffect(() => {
         api.get(`questions/${question_id}`)
         .then(({ data }) =>{ 
             setQuestion(data);
             async function fetchUserData() {
                 setAnswers(await Promise.all(data.answers.map(async (answer) => {
-                    const user = await api.get('users/'+ answer.id);
+                    const user = await api.get('users/'+ answer.users_permissions_user);
                     answer.fullName = `${user.data.firstName} ${user.data.lastName}`;
                     return answer;
                 })));
@@ -27,6 +29,29 @@ export default function QuestionPage(props) {
             fetchUserData();
         })
     }, []);
+
+    const [description, setDescription] = useState('');
+
+    async function handleAnswer(e) {
+        e.preventDefault();
+
+        const data = {
+            description,
+            question: question_id
+        }
+
+        try {
+            const response = await api.post('answers', data, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                }
+            });
+
+            window.location.reload();
+        } catch {
+            alert('Erro ao responder, tente novamente');
+        }
+    }
 
     return (
         <div className="App">
@@ -41,11 +66,18 @@ export default function QuestionPage(props) {
 
             <div className="page-wrapper">
                 <main id="main-content" className="page-main">
-                    <div className="questions-list -recent">
+                    <div className="question-description">
+                        <p className="description">{question.description}</p>
+                        
+                        <div className="author">
+                            <span className="">Feita por: </span>
+                            <span className="name">{`${question.users_permissions_user?.firstName} ${question.users_permissions_user?.lastName}`}</span>
+                        </div>
+                    </div>
+                    
+                    <div className="answers-list">
                         <div className="head">
-                            <h2 className="title">Respostas</h2>
-
-                            {/* <a href="/pergunte" className="link">Faça uma pergunta</a> */}
+                            <h2 className="title">Respostas</h2>    
                         </div>
                         
                         <ul className="list">
@@ -54,9 +86,9 @@ export default function QuestionPage(props) {
                                 <h1>Ainda não há respostas</h1>
                             : 
                                 answers.map(answer => (
-                                    <li key = {answer.id} className="question-item">
-                                        <div className="tags">
-                                            <span>{answer.description}</span>
+                                    <li key = {answer.id} className="item">
+                                        <div className="answer">
+                                            <p>{answer.description}</p>
                                         </div>
 
                                         <div className="author">
@@ -67,6 +99,23 @@ export default function QuestionPage(props) {
                             ))}
                         </ul>
                     </div>
+
+                    <form onSubmit={handleAnswer} className="form-container answer">
+                        <div className="field">
+                            <textarea 
+                                name="answers" 
+                                id="answers" 
+                                maxLength="3000" 
+                                placeholder="Escreva sua resposta"
+                                onChange={e => setDescription(e.target.value)}
+                            >
+                            </textarea>
+                        </div>
+
+                        <div className="actions">
+                            <button type="submit" className="button">Responder</button>
+                        </div>
+                    </form>
                 </main>
             </div>
         </div>

@@ -8,6 +8,8 @@ import UserSpace from './UserSpace';
 
 export default function Header({isHome, isLogged}) {    
     const userName = localStorage.getItem('username');
+    const userId = localStorage.getItem('user_id');
+    const token = localStorage.getItem('token');
 
     const history = useHistory();
 
@@ -31,7 +33,7 @@ export default function Header({isHome, isLogged}) {
         );
     }
 
-    if(isLogged) {
+    if(token) {
         return (
             <header className="page-header">
                 <div className="content">
@@ -42,7 +44,7 @@ export default function Header({isHome, isLogged}) {
                     <div className="user-space">
                         <span>Bem vindo de volta, {userName},
 
-                        <Link to={`/profile/`} className="link"> Meu Perfil ,</Link> 
+                        <Link to={`/profile/${userId}`} className="link"> Meu Perfil ,</Link> 
                         
                         <button className="logout" onClick={handleLogout}> Logout</button></span>
                     </div>

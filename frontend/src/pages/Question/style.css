@@ -1,0 +1,65 @@
+.question-description {
+    padding: 20px;
+    background-color: #FFF;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.question-description > .author {
+    display: inline-block;
+    margin-left: auto;
+}
+
+.question-description > .author > .name {
+    font-weight: 600;
+    color: #005687;
+    text-decoration: none;
+}
+
+.question-description > .author > .name:hover {
+    text-decoration: underline;
+}
+
+.answers-list > .head > .title {
+    margin-bottom: 20px;
+}
+
+.answers-list > .list {
+    list-style: none;
+}
+
+.answers-list > .list > .item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #FFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.answers-list > .list > .item > .author {
+    margin-left: auto;
+}
+
+.answers-list > .list > .item > .author > .name {
+    font-weight: 600;
+    color: #005687;
+    text-decoration: none;
+}
+
+.answers-list > .list > .item > .author > .name:hover {
+    text-decoration: underline;
+}
+
+.answers-list> .list > .item > .answer {
+    margin-bottom: 10px;
+}
+
+.answers-list> .list > .item > .answer > p {
+    word-break: break-all;
+    hyphens: auto;
+}

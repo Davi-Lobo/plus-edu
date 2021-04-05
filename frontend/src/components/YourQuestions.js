@@ -34,7 +34,7 @@ export default function YourQuestions() {
             <ul className="list">
                 {userQuestions.map(question => (
                     <li key={question.id} className="question-item">
-                        <Link className="title" to={`/ask/${question.id}`}>
+                        <Link className="title" to={`/question/${question.id}`}>
                             <h3 className="title">{question.title}</h3>
                         </Link>
 

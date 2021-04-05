@@ -112,6 +112,7 @@ h2 {
 .page-main {
     width: 70%;
     padding-right: 40px;
+    padding-bottom: 60px;
 }
 
 .sidebar-main {
@@ -374,6 +375,10 @@ h2 {
     flex-direction: column;
     max-width: 800px;
     padding: 30px;
+}
+
+.form-container.answer {
+    max-width: unset;
 }
 
 .form-container > .field {

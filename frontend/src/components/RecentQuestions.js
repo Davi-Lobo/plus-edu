@@ -33,7 +33,7 @@ export default function RecentQuestions() {
 
                         <div className="author">
                             <span>Feita por: </span>
-                            <span className="name">{`${question.users_permissions_user.firstName} ${question.users_permissions_user.lastName}`}</span>
+                            <Link to={`/profile/${question.users_permissions_user.id}`} className="name">{`${question.users_permissions_user.firstName} ${question.users_permissions_user.lastName}`}</Link>
                         </div>
                     </li>
                 ))}
