@@ -23,7 +23,7 @@ export default function RecentQuestions() {
             <ul className="list">
                 {questions.map(question => (
                     <li key={question.id} className="question-item">
-                        <Link className="title" to={`/pergunta/${question.id}`}>
+                        <Link className="title" to={`/question/${question.id}`}>
                             <h3 className="title">{question.title}</h3>
                         </Link>
 

@@ -19,8 +19,8 @@ export default function Home() {
             <Header isLoggedIn={false} isHome={true}/>
 
             <div className="page-title">
-                        <h1 className="title">Página Inicial</h1>
-                    </div>
+                <h1 className="title">Página Inicial</h1>
+            </div>
 
             <div className="page-wrapper">
                 <main id="main-content" className="page-main">
