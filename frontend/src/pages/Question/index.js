@@ -14,28 +14,21 @@ export default function QuestionPage(props) {
 
     useEffect(() => {
         api.get(`questions/${question_id}`)
-        .then(response =>{
-            setQuestion(response.data);
-            setAnswers(response.data.answers);
-            console.log(response.data.answers);
+        .then(({ data }) =>{ 
+            setQuestion(data);
+            async function fetchUserData() {
+                setAnswers(await Promise.all(data.answers.map(async (answer) => {
+                    const user = await api.get('users/'+ answer.id);
+                    answer.fullName = `${user.data.firstName} ${user.data.lastName}`;
+                    return answer;
+                })));
+            }
+    
+            fetchUserData();
         })
     }, []);
 
-    useEffect(() => {
-        async function fetchUserData() {
-            setAnswers(await Promise.all(answers.map(async (answer) => {
-                const user = await api.get('users/'+ answer.id);
-                answer.fullName = `${user.data.firstName} ${user.data.lastName}`;
-                return answer;
-            })));
-        }
-
-        fetchUserData();
-    }, []);
-
-
     return (
-        
         <div className="App">
             <Helmet>
                 <title>{ TITLE }</title>
