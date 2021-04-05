@@ -21,7 +21,10 @@ export default function LoginForm() {
         try {
             const response = await api.post('auth/local', data);
 
-            localStorage.setItem('token', data.jwt);
+            localStorage.setItem('token', response.data.jwt);
+            localStorage.setItem('username', response.data.user.firstName);
+            localStorage.setItem('user_id', response.data.user.id);
+
             history.push('/dashboard');
         } catch {
             alert('Falha no login, tente novamente');
@@ -36,6 +39,7 @@ export default function LoginForm() {
                     id="username" 
                     type="email" 
                     placeholder="Insira seu e-mail"
+                    autoComplete="off"
                     onChange={e => setIdentifier(e.target.value)}
                 />
             </div>

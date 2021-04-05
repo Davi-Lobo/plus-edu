@@ -9,7 +9,6 @@ export default function RecentQuestions() {
     useEffect(() => {
         api.get('questions').then(response =>{
             setQuestions(response.data);
-            console.log(response.data)
         })
     }, []);
 

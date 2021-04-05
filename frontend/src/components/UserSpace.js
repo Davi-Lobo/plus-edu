@@ -13,7 +13,7 @@ export default function UserSpace({isLoggedIn}) {
     return (
         <div className="user-space">
             <Link to="/login" className="login">Entrar</Link>
-            <Link to="/registro" className="register">Registrar</Link>
+            <Link to="/register" className="register">Registrar</Link>
         </div>
     );
 }

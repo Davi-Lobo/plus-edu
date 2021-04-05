@@ -6,32 +6,35 @@ import api from '../services/api';
 
 export default function YourQuestions() {    
     const [ questions, setQuestions] = useState([]);
+    const [ userQuestions, setUserQuestions] = useState([]);
 
     const userName = localStorage.getItem('username');
+    const userId = localStorage.getItem('user_id');
 
     useEffect(() => {
-        api.get('profile', {
-            headers: {
-                author: userName,
-            }
-        }).then(response =>{
+        api.get('questions').then(response =>{
             setQuestions(response.data);
-            console.log(response.data);
         })
-    }, [userName]);
+    }, []);
+
+    useEffect(() => {
+        const filteredQuestions = questions.filter(question => question.users_permissions_user.id == userId);
+        setUserQuestions(filteredQuestions);
+    }, [questions]);
+
 
     return (
         <div className="questions-list -yours">
             <div className="head">
-                <h2 className="title">Suas Perguntas</h2>
+                <h2 className="title">Suas Perguntas</h2> 
 
-                <a href="/pergunte" className="link">Faça uma pergunta</a>
+                <Link to="/ask" className="link">Faça uma pergunta</Link>
             </div>
             
             <ul className="list">
-                {questions.map(question => (
+                {userQuestions.map(question => (
                     <li key={question.id} className="question-item">
-                        <Link className="title" to={`/pergunta/${question.id}`}>
+                        <Link className="title" to={`/ask/${question.id}`}>
                             <h3 className="title">{question.title}</h3>
                         </Link>
 
@@ -41,7 +44,7 @@ export default function YourQuestions() {
 
                         <div className="author">
                             <span>Feita por: </span>
-                            <span className="name">{question.author}</span>
+                            <span className="name">{`${question.users_permissions_user.firstName} ${question.users_permissions_user.lastName}`}</span>
                         </div>
                     </li>
                 ))}

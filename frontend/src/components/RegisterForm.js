@@ -4,29 +4,30 @@ import { useHistory } from 'react-router-dom';
 import api from '../services/api';
 
 export default function RegisterForm() {
-    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [occupation, setOcuppation] = useState('');
-    const [teacher, setTeacher] = useState('');
+    const [type, setType] = useState('');
 
     const history = useHistory();
 
     async function handleRegister(e) {
         e.preventDefault();
 
-        setTeacher(parseInt(teacher));
-
         const data = {
-            name,
+            username: email,
             email,
             password,
-            occupation,
-            teacher
+            type,
+            firstName,
+            lastName,
+            occupation
         }
 
         try {
-            const response = await api.post('users', data);
+            const response = await api.post('auth/local/register', data);
 
             history.push('/login');
         } catch {
@@ -42,13 +43,24 @@ export default function RegisterForm() {
             </div> */}
 
             <div className="field">
-                <label htmlFor="name" className="label -required">Nome</label>
+                <label htmlFor="firstname" className="label -required">Nome</label>
                 <input 
-                    id="name" 
+                    id="firstname" 
                     className="input" 
                     type="text" 
-                    placeholder="Insira seu nome e sobrenome"
-                    onChange={e => setName(e.target.value)}
+                    placeholder="Insira seu nome"
+                    onChange={e => setFirstName(e.target.value)}
+                />
+            </div>
+
+            <div className="field">
+                <label htmlFor="lastname" className="label -required">Sobrenome</label>
+                <input 
+                    id="lastname" 
+                    className="input" 
+                    type="text" 
+                    placeholder="Insira seu sobrenome"
+                    onChange={e => setLastName(e.target.value)}
                 />
             </div>
 
@@ -91,10 +103,10 @@ export default function RegisterForm() {
                 <select 
                     name="teacher" 
                     id="teacher"
-                    onChange={e => setTeacher(e.target.value)} 
+                    onChange={e => setType(e.target.value)} 
                 >
-                    <option value="0" selected>Não</option>
-                    <option value="1">Sim</option>
+                    <option value="STUDENT" selected>Não</option>
+                    <option value="TEACHER">Sim</option>
                 </select>
             </div>
 
